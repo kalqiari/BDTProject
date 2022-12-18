@@ -1,0 +1,36 @@
+CREATE EXTERNAL TABLE weather_data (
+key string,
+latitude string,
+longitude string,
+generationtime_ms string,
+utc_offset_seconds string,
+timezone string,
+timezone_abbreviation string,
+elevation string,
+temperature string,
+windspeed string,
+weathercode string,
+winddirection string,
+time string,
+state string
+)
+
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+
+WITH SERDEPROPERTIES (
+"hbase.columns.mapping" = ":key,
+ info:latitude,
+ info:longitude,
+ info:generationtime_ms,
+ info:utc_offset_seconds,
+ info:timezone,
+ info:timezone_abbreviation,
+ info:elevation,
+ info:temperature,
+ info:windspeed,
+ info:weathercode,
+ info:winddirection,
+ info:time,
+ info:state
+ ")
+TBLPROPERTIES ("hbase.table.name" = "weather_data");
