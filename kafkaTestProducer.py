@@ -3,6 +3,7 @@ import time
 
 import pandas as pd
 import requests
+
 from kafka import KafkaProducer
 
 # Set the URL to fetch the data from
