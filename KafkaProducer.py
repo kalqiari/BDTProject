@@ -6,6 +6,9 @@ import pandas as pd
 import requests
 
 from kafka import KafkaProducer
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
 
 # Set the URL to fetch the data from
 states = pd.read_csv("states.csv")
@@ -26,10 +29,10 @@ while True:
         tempData["state"] = state
 
         # Create a Kafka producer
-        producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
+        producer = KafkaProducer(bootstrap_servers=[config.get("kafka_url")])
 
         # Send the data to Kafka
-        producer.send('weather-data', json.dumps(tempData).encode())
+        producer.send(config.get("kafka_topic"), json.dumps(tempData).encode())
 
         # Flush and close the producer
         producer.flush()
