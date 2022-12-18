@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE weather_data (
+CREATE EXTERNAL TABLE weather (
 key string,
 latitude string,
 longitude string,
