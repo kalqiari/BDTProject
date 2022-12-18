@@ -1,4 +1,5 @@
 # Import necessary packages
+import json
 import time
 
 import pandas as pd
@@ -28,7 +29,7 @@ while True:
         producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
 
         # Send the data to Kafka
-        producer.send('weather-data', str(tempData).encode())
+        producer.send('weather-data', json.dumps(tempData).encode())
 
         # Flush and close the producer
         producer.flush()
