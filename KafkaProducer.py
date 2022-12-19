@@ -18,7 +18,7 @@ for i, row in enumerate(states.values):
 
 # Set the interval to send the data (in seconds)
 interval1 = 2
-interval2 = 5
+interval2 = 1
 
 while True:
     # Fetch the data from the URL
@@ -33,7 +33,7 @@ while True:
 
         # Send the data to Kafka
         producer.send(config.get("kafka_topic"), json.dumps(tempData).encode())
-
+        print(data)
         # Flush and close the producer
         producer.flush()
         producer.close()
