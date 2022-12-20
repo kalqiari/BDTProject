@@ -14,14 +14,13 @@
 
 ## Prerequisites:
 - Docker 
-- VM Cloudera Runing
+- Cloudera QuickStart VM Runing
 - Python 3.7 
 - Java JDK 1.8 or above.
 - install python libraries (happybase, pyspark, python-dotenv, pandas, kafka)
 
 ## Installation Steps: 
 
-- brew install --cask docker
 - git clone https://github.com/kalqiari/BDTProject.git
 - cd BDTProject
 - docker compose up
