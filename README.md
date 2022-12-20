@@ -12,7 +12,7 @@
 - Java
 
 
-## Prequests:
+## Prerequisites:
 - Docker 
 - VM Cloudera Runing
 - Python 3.7 
